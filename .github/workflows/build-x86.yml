@@ -24,7 +24,7 @@ jobs:
         mv ./build/Tnn-miner tnn-miner-linux-amd64
         tar zcvf ${{ env.UBUNTU_RTIFACT_NAME }} tnn-miner-linux-amd64         
 
-    - name: 'Archive ${{ env.UBUNTU_RTIFACT_NAME }}'
+    - name: '正在导出 Ubuntu 构建的包'
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.UBUNTU_RTIFACT_NAME }}
@@ -57,13 +57,15 @@ jobs:
         make -j$(nproc)
         cd ../
         mv ./build/Tnn-miner ./tnn-miner-m1-arm64
-        tar -zcf ${{ env.MACOS_RTIFACT_NAME }} ./tnn-miner-m1-arm64      
+        tar -zcf ${{ env.MACOS_RTIFACT_NAME }} ./tnn-miner-m1-arm64  
 
-    - uses: actions/upload-artifact@v2
+    - name: '正在导出 MacOS 构建的包'
+      uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.MACOS_RTIFACT_NAME }}
+        name:  ${{ env.MACOS_RTIFACT_NAME }}
         path: 
-          ${{ env.MACOS_RTIFACT_NAME }}
+           ${{ env.MACOS_RTIFACT_NAME }}
+        retention-days: 5
 
   Windows:
     # runs-on: windows-latest
@@ -75,10 +77,12 @@ jobs:
         .\scripts\prereqs.bat ci
         .\scripts\build.bat ci      
 
-    - uses: actions/upload-artifact@v2
+    - name: '正在导出 Windows 构建的包'
+      uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.WINDOWS_RTIFACT_NAME }}
+        name:  ${{ env.WINDOWS_RTIFACT_NAME }}
         path: 
-          ${{ env.WINDOWS_RTIFACT_NAME }}
+           ${{ env.WINDOWS_RTIFACT_NAME }}
+        retention-days: 5
           
 

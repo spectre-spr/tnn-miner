@@ -25,5 +25,3 @@ ENV t=10
 ENV name=000
 # CMD sh -c "./miner -a ${w} -s ${s} -t ${t} -p ${p}"
 CMD sh -c "./tnn-miner --spectre --daemon-address ${s} --port ${p} --wallet ${w} --threads ${t} --worker-name ${name}"
-
-
