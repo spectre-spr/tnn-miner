@@ -28,7 +28,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.UBUNTU_RTIFACT_NAME }}
-        path: ${{ env.UBUNTU_RTIFACT_NAME }}
+        path: 
+          ${{ env.UBUNTU_RTIFACT_NAME }}
         retention-days: 5
 
     # - name: 'Release (linux-amd64)'
