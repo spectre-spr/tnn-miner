@@ -1,7 +1,7 @@
 FROM ubuntu:22.04 as tnn
-ENV TZ Asia/Shanghai
+
 USER root
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y sudo
 
 RUN mkdir /app
@@ -10,7 +10,7 @@ WORKDIR /app
 RUN scripts/prereqs.sh 
 RUN scripts/build.sh
 RUN mv build/Tnn-miner tnn-miner
-# docker build --platform linux/arm64 .
+
 
 FROM ubuntu:22.04
 ENV TZ Asia/Shanghai
