@@ -36,5 +36,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/tnn-miner:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/tnn-miner:${{ github.event.release.tag_name }}
-
+            # ${{ secrets.DOCKERHUB_USERNAME }}/tnn-miner:${{ github.event.release.tag_name }}
