@@ -1,0 +1,47 @@
+# Prerequisites
+**.d
+
+# Compiled Object files
+**.slo
+**.lo
+**.o
+**.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Executables
+**.exe
+**.out
+**.app
+
+# Directories
+/bin
+/lib
+/hooks
+/info
+/CMakeFiles
+/config
+/.vscode
+/cmake
+/cpp_modules
+/build
+/tests
+/boost-1.82.0/**
+/.cache
+
+# Xelis rust resources
+/src/xelis-hash/**.rs
+/src/xelis-hash/**.toml
+/src/xelis-hash/**.lock
+/src/xelis-hash/target
+
+# Misc
+# **.txt
+

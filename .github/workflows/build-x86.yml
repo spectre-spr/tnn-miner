@@ -1,0 +1,83 @@
+name: Build x86 Tnn-miner on Ubuntu 22.04
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  UBUNTU_RTIFACT_NAME: tnn-miner-linux-x86_64.tar.gz
+  MACOS_RTIFACT_NAME: tnn-miner-m1-arm64.tar.gz
+  WINDOWS_RTIFACT_NAME: tnn-miner-win-x86_64.zip
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 'Update system'
+      run: |
+        # sudo apt-get update
+        # sudo apt-get install -y sudo
+        scripts/prereqs.sh && scripts/build.sh
+        mv ./build/Tnn-miner tnn-miner-linux-amd64
+        tar zcvf ${{ env.UBUNTU_RTIFACT_NAME }} tnn-miner-linux-amd64         
+
+    - name: 'Archive ${{ env.UBUNTU_RTIFACT_NAME }}'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.UBUNTU_RTIFACT_NAME }}
+        path: ${{ env.UBUNTU_RTIFACT_NAME }}
+        retention-days: 5
+
+    # - name: 'Release (linux-amd64)'
+    #   uses: softprops/action-gh-release@v2
+    #   if: startsWith(github.ref, 'refs/tags/')
+    #   with:
+    #     tag_name: ${{ github.ref }}
+    #     files: |
+    #       ${{ env.UBUNTU_RTIFACT_NAME }}
+    #     prerelease: false
+
+  macOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pack
+      run: |
+        # brew install clang
+        brew install fmt
+        brew install cmake
+        mkdir ./build
+        cd ./build
+        ln -s /opt/homebrew/Cellar/fmt/10.2.1_1/include/fmt /Users/runner/work/tnn-miner/tnn-miner/src/miner/fmt
+        cmake -DTNN_VERSION=$PACKAGE_VERSION ..
+        make -j$(nproc)
+        cd ../
+        mv ./build/Tnn-miner ./tnn-miner-m1-arm64
+        tar -zcf ${{ env.MACOS_RTIFACT_NAME }} ./tnn-miner-m1-arm64      
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.MACOS_RTIFACT_NAME }}
+        path: 
+          ${{ env.MACOS_RTIFACT_NAME }}
+
+  Windows:
+    # runs-on: windows-latest
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pack
+      run: |
+        .\scripts\prereqs.bat ci
+        .\scripts\build.bat ci      
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.WINDOWS_RTIFACT_NAME }}
+        path: 
+          ${{ env.WINDOWS_RTIFACT_NAME }}
+          
+
