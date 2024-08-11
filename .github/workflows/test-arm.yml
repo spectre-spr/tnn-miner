@@ -6,6 +6,7 @@ on:
   release:
     types: [ published ]
 
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -37,12 +38,49 @@ jobs:
             TARGET: macos/aarch64
     name: Building, ${{ matrix.TARGET }}
     steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-
       - name: Fix CRLF on Windows
         if: runner.os == 'Windows'
         run: git config --global core.autocrlf false
+
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install zig on Linux
+        if: runner.os == 'Linux'
+        uses: goto-bus-stop/setup-zig@v2 # needed for cargo-zigbuild
+
+      - name: Install protoc on Linux
+        if: runner.os == 'Linux'
+        uses: taiki-e/install-action@v2
+        with:
+          tool: protoc
+
+      - name: Install protoc on macOS
+        if: runner.os == 'macOS'
+        uses: taiki-e/install-action@v2
+        with:
+          tool: protoc
+
+      - name: Install msys2 on Windows
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: clang64
+          install: mingw-w64-clang-x86_64-clang mingw-w64-clang-x86_64-protobuf zip
 
       - name: Build on Linux for linux-gnu/amd64
         if: matrix.TARGET == 'linux-gnu/amd64'
@@ -51,11 +89,8 @@ jobs:
           TARGET_CXX: x86_64-linux-gnu-g++
           RUSTFLAGS: -C linker=x86_64-linux-gnu-gcc
         run: |
-          scripts/prereqs.sh && scripts/build.sh
-          mv ./build/Tnn-miner tnn-miner-linux-amd64
-
-          archive="tnn-miner-${{ github.event.release.tag_name }}-linux-gnu-amd64.zip"
-          zip -r "${archive}" tnn-miner-linux-amd64
+          # zip -r "${archive}" ./bin/*
+          echo "hello word"
 
       - name: Build on Linux for linux-gnu/aarch64
         if: matrix.TARGET == 'linux-gnu/aarch64'
