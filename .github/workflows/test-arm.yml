@@ -2,7 +2,7 @@ name: Build and upload assets
 on:
   push:
       branches:
-        - main
+        - mains
   release:
     types: [ published ]
 
