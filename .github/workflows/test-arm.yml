@@ -146,7 +146,11 @@ jobs:
     #     run: |
     #       rustup target add aarch64-apple-darwin
 
-
+      - name: '正在导出 Ubuntu 构建的包'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tnn-miner
+          path: tnn-miner*.zip
     #   - name: Upload release asset
     #     uses: softprops/action-gh-release@v2
     #     with:
