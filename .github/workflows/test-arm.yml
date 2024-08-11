@@ -1,5 +1,8 @@
 name: Build and upload assets
 on:
+  push:
+      branches:
+        - main
   release:
     types: [ published ]
 
