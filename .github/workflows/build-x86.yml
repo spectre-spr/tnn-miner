@@ -3,7 +3,7 @@ name: Build x86 Tnn-miner on Ubuntu 22.04
 on:
   push:
     branches:
-      - main
+      - mains
 
 env:
   UBUNTU_RTIFACT_NAME: tnn-miner-linux-x86_64.tar.gz
