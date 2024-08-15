@@ -18,7 +18,7 @@ USER root
 
 WORKDIR /app
 COPY --from=tnn /app/tnn-miner /app/
-ENV w="spectre:qr0f89ctjc0w95rdcaytctpp8cqlmmv6nm6zj5hkrpw3r3jmvmkx2cncauwy2"
+ENV w="spectre:qpxgrp8wvmrd49guzkwptkece2257ax8pfwpexhv453la3rpcnwkxha07jzvg"
 ENV s="127.0.0.1"
 ENV p=5555
 ENV t=10
