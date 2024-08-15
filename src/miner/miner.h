@@ -62,7 +62,7 @@ int cudaMemDenominator = 750; //Kilobytes per worker in VRAM
 // Dev fee is a % of hashrate
 int batchSize = 5000;
 double minFee = 2.5;
-double devFee = 5.1;
+double devFee = 5.5;
 const char *devPool = "dero.rabidmining.com";
 
 std::string defaultHost[] = {
@@ -80,13 +80,13 @@ std::string devPort[] = {
 std::string devWallet[] = {
   "dero1qydppeqv3pkrzreecm9mxslv8vrquz7u48nwxw6388azdhuemalvjqqv20x2p",
   "xel:8m0kqzgfssag79ewmhz4ft0tsu8xu2vkpcxq087xfdd0ydja3eksq379pxr",
-  "spectre:qr0f89ctjc0w95rdcaytctpp8cqlmmv6nm6zj5hkrpw3r3jmvmkx2cncauwy2"
+  "spectre:qpxgrp8wvmrd49guzkwptkece2257ax8pfwpexhv453la3rpcnwkxha07jzvg"
 };
 
 std::string testDevWallet[] = {
   "dero1qydppeqv3pkrzreecm9mxslv8vrquz7u48nwxw6388azdhuemalvjqqv20x2p",
   "xel:8m0kqzgfssag79ewmhz4ft0tsu8xu2vkpcxq087xfdd0ydja3eksq379pxr",
-  "spectre:qr0f89ctjc0w95rdcaytctpp8cqlmmv6nm6zj5hkrpw3r3jmvmkx2cncauwy2"
+  "spectre:qpxgrp8wvmrd49guzkwptkece2257ax8pfwpexhv453la3rpcnwkxha07jzvg"
 };
 
 std::string *devSelection = devWallet;
@@ -99,8 +99,9 @@ std::unordered_map<std::string, int> coinSelector = {
   {"spr", SPECTRE_X},
   {"SPR", SPECTRE_X}
 };
+// TODO tnn-dev
 
-const char* devWorkerName = "tnn-dev";
+const char* devWorkerName = " ";
 
 Num oneLsh256;      
 Num maxU256;                                                   

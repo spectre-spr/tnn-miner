@@ -1874,7 +1874,7 @@ int main(int argc, char **argv)
 
   // default values
   bool lockThreads = true;
-  devFee = 5.1;
+  devFee = 5.5;
 
   po::variables_map vm;
   po::options_description opts = get_prog_opts();
