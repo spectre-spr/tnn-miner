@@ -10,7 +10,7 @@ on:
 env:
   UBUNTU_RTIFACT_NAME: tnn-miner-linux-x86_64.tar.gz
   MACOS_RTIFACT_NAME: tnn-miner-m1-arm64.tar.gz
-  WINDOWS_RTIFACT_NAME: build/Tnn-miner-2024.08.18.13-dev.exe
+  WINDOWS_RTIFACT_NAME: tnn-miner-x86-64.exe
 
 jobs:
   # ubuntu:
@@ -83,11 +83,12 @@ jobs:
           .cache 
           include
         key: cplusplus-dependencies-${{ hashFiles('CMakeLists.txt') }}
-        
+
     - name: Pack
       run: |
         .\scripts\prereqs.bat ci
-        .\scripts\build.ps1 ci      
+        .\scripts\build.ps1 ci  
+        copy .\build\Tnn-miner-2024.08.18.13-dev.exe .\tnn-miner-x86-64.exe    
 
     - name: '正在导出 Windows 构建的包'
       uses: actions/upload-artifact@v4
