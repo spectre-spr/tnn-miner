@@ -79,7 +79,7 @@ jobs:
       run: |
         .\scripts\prereqs.bat ci
         .\scripts\build.ps1 ci  
-        copy .\build\Tnn-miner-2024.08.18.13-dev.exe .\tnn-miner-x86-64.exe    
+        copy .\build\Tnn-miner*.exe .\tnn-miner-x86-64.exe    
 
     - name: '正在导出 Windows 构建的包'
       uses: actions/upload-artifact@v4
