@@ -74,6 +74,14 @@ jobs:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v2
+    - name: Cache C++ dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            build
+            .cache 
+            include
+          key: cplusplus-dependencies-${{ hashFiles('CMakeLists.txt') }}
     - name: Pack
       run: |
         .\scripts\prereqs.bat ci
