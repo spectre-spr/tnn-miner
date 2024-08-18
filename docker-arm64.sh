@@ -12,3 +12,5 @@ apt-get update && apt-get install -y sudo
 sudo apt-get install -y libsodium-dev libsodium23
 
 scripts/prereqs.sh && scripts/build.sh 64-arm-0.4.0-dev
+
+tar -zcvf tnn-miner-arm64.tar.gz build/Tnn-miner*
