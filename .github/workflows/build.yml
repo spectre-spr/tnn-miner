@@ -52,11 +52,12 @@ jobs:
         clang++ --version
     - name: 'Compile Tnn-miner'
       run: |
+        sudo apt-get install -y libsodium-dev libsodium23
         mkdir build
         cd build
         cmake ..
         make -j$(nproc)
-        tar -cvf ../tnn-miner.tar Tnn-miner
+        tar -cvf ../tnn-miner.tar Tnn-miner*
     - name: 'Archive tnn-miner.tar.gz'
       uses: actions/upload-artifact@v4
       with:
