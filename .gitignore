@@ -38,6 +38,7 @@
 /src/astrobwtv3/build
 /src/astrobwtv3/export
 /lib/astrospsa/
+tnn-miner-*
 
 # Xelis rust resources
 /src/xelis-hash/**.rs
