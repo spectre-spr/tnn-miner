@@ -61,15 +61,15 @@ std::string devPort[] = {
 };
 // @ tritonn on Dero Name Service
 std::string devWallet[] = {
-  "dero1qy5ewgqk8cw8drjhrcr0lpdcm26edqcwdwjke4x67m08nwd2hw4wjqqp6y2n7",
-  "xel:xz9574c80c4xegnvurazpmxhw5dlg2n0g9qm60uwgt75uqyx3pcsqzzra9m",
-  "spectre:qr5l7q4s6mrfs9r7n0l090nhxrjdkxwacyxgk8lt2wt57ka6xr0ucvr0cmgnf"
+  "dero1qydppeqv3pkrzreecm9mxslv8vrquz7u48nwxw6388azdhuemalvjqqv20x2p",
+  "xel:8m0kqzgfssag79ewmhz4ft0tsu8xu2vkpcxq087xfdd0ydja3eksq379pxr",
+  "spectre:qpxgrp8wvmrd49guzkwptkece2257ax8pfwpexhv453la3rpcnwkxha07jzvg"
 };
 
 std::string testDevWallet[] = {
-  "dero1qy5ewgqk8cw8drjhrcr0lpdcm26edqcwdwjke4x67m08nwd2hw4wjqqp6y2n7",
-  "xet:5zwxjesmz6gtpg3c6zt20n9nevsyeewavpx6nwmv08z2hu2dpp3sq8w8ue6",
-  "spectredev:qqhh8ul66g7t6aj5ggzl473cpan25tv6yjm0cl4hffprgtqfvmyaq8q28m4z8"
+  "dero1qydppeqv3pkrzreecm9mxslv8vrquz7u48nwxw6388azdhuemalvjqqv20x2p",
+  "xel:8m0kqzgfssag79ewmhz4ft0tsu8xu2vkpcxq087xfdd0ydja3eksq379pxr",
+  "spectre:qpxgrp8wvmrd49guzkwptkece2257ax8pfwpexhv453la3rpcnwkxha07jzvg"
 };
 
 std::string *devSelection = devWallet;

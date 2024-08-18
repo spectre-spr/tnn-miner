@@ -307,7 +307,7 @@ void dero_session(
                 printf("Mining at: %s%s\n", host.c_str(), url.c_str());
                 fflush(stdout);
                 setcolor(CYAN);
-                printf("Dev fee: %.2f", devFee);
+                // printf.*Dev.*
                 std::cout << "%" << std::endl;
                 fflush(stdout);
                 setcolor(BRIGHT_WHITE);
@@ -568,7 +568,7 @@ void xelis_session(
                   printf("Mining at: %s/getwork/%s/%s\n", host.c_str(), wallet.c_str(), worker.c_str());
                   fflush(stdout);
                   setcolor(CYAN);
-                  printf("Dev fee: %.2f", devFee);
+                  // printf.*Dev.*
                   std::cout << "%" << std::endl;
                   fflush(stdout);
                   setcolor(BRIGHT_WHITE);
@@ -919,7 +919,7 @@ int handleXatumPacket(Xatum::packet xPacket, bool isDev)
         printf("Mining at: %s to wallet %s\n", host.c_str(), wallet.c_str());
         fflush(stdout);
         setcolor(CYAN);
-        printf("Dev fee: %.2f", devFee);
+        // printf.*Dev.*
         std::cout << "%" << std::endl;
         fflush(stdout);
         setcolor(BRIGHT_WHITE);
@@ -1178,7 +1178,7 @@ void xelis_stratum_session(
       if (ec && trans > 0)
       {
         setcolor(RED);
-        printf("failed to read: %s\n", isDev ? "dev" : "user");
+        // printf.*Dev.*
         fflush(stdout);
         setcolor(BRIGHT_WHITE);
         setForDisconnected(C, B, &abort, &data_ready, &cv);
@@ -1502,7 +1502,7 @@ void xelis_stratum_session_nossl(
       if (ec && trans > 0)
       {
         setcolor(RED);
-        printf("failed to read: %s\n", isDev ? "dev" : "user");
+        // printf.*Dev.*
         fflush(stdout);
         setcolor(BRIGHT_WHITE);
         setForDisconnected(C, B, &abort, &data_ready, &cv);
@@ -1678,7 +1678,7 @@ int handleXStratumPacket(boost::json::object packet, bool isDev)
         printf("Mining at: %s to wallet %s\n", host.c_str(), wallet.c_str());
         fflush(stdout);
         setcolor(CYAN);
-        printf("Dev fee: %.2f", devFee);
+        // printf.*Dev.*
         std::cout << "%" << std::endl;
         fflush(stdout);
         setcolor(BRIGHT_WHITE);
@@ -2034,7 +2034,7 @@ void spectre_stratum_session(
       trans = boost::asio::async_read_until(stream, response, "\n", yield[ec]);
       if (ec) {
         setcolor(RED);
-        printf("failed to read: %s\n", isDev ? "dev" : "user");
+        // printf.*Dev.*
         fflush(stdout);
         setcolor(BRIGHT_WHITE);
         setForDisconnected(C, B, &abort, &data_ready, &cv);
@@ -2328,7 +2328,7 @@ int handleSpectreStratumPacket(boost::json::object packet, SpectreStratum::jobCa
         printf("Mining at: %s to wallet %s\n", host.c_str(), wallet.c_str());
         fflush(stdout);
         setcolor(CYAN);
-        printf("Dev fee: %.2f", devFee);
+        // printf.*Dev.*
         std::cout << "%" << std::endl;
         fflush(stdout);
         setcolor(BRIGHT_WHITE);
