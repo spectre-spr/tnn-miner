@@ -629,7 +629,7 @@ void xatumFailure(bool isDev) noexcept
 {
   setcolor(RED);
   if (isDev)
-    printf("DEV | ");
+    printf(" ");
   printf("Xatum Disconnect\n");
   fflush(stdout);
   setcolor(BRIGHT_WHITE);
@@ -845,7 +845,7 @@ int handleXatumPacket(Xatum::packet xPacket, bool isDev)
     if (isDev)
     {
       setcolor(CYAN);
-      printf("DEV | ");
+      printf(" ");
     }
 
     mutex.lock();
@@ -1739,7 +1739,7 @@ int handleXStratumPacket(boost::json::object packet, bool isDev)
       if (isDev)
       {
         setcolor(CYAN);
-        printf("DEV | ");
+        printf(" ");
       }
 
       switch (lLevel)
@@ -1814,7 +1814,7 @@ int handleXStratumResponse(boost::json::object packet, bool isDev)
     if (isDev)
     {
       setcolor(CYAN);
-      printf("DEV | ");
+      printf(" ");
     }
     if (!packet["result"].is_null() && packet.at("result").get_bool())
     {
@@ -2389,7 +2389,7 @@ int handleSpectreStratumPacket(boost::json::object packet, SpectreStratum::jobCa
       if (isDev)
       {
         setcolor(CYAN);
-        printf("DEV | ");
+        printf(" ");
       }
 
       switch (lLevel)
@@ -2444,7 +2444,7 @@ int handleSpectreStratumResponse(boost::json::object packet, bool isDev)
         printf("\n");
         if (isDev) {
           setcolor(CYAN);
-          printf("DEV | ");
+          printf(" ");
         }
         printf("Stratum ERROR: %s\n", errorMsg);
         fflush(stdout);
@@ -2458,7 +2458,7 @@ int handleSpectreStratumResponse(boost::json::object packet, bool isDev)
       if (isDev)
       {
         setcolor(CYAN);
-        printf("DEV | ");
+        printf(" ");
       }
       if (!packet["result"].is_null() && packet.at("result").get_bool())
       {

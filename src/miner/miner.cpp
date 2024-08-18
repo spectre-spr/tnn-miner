@@ -1572,7 +1572,7 @@ waitForJob:
             {
               submittingDev = true;
               setcolor(CYAN);
-              std::cout << "\n(DEV) Thread " << tid << " found a dev share\n" << std::flush;
+              std::cout << "\nThread " << tid << "share\n" << std::flush;
               setcolor(BRIGHT_WHITE);
               devShare = {
                   {"jobid", myJobDev.at("jobid").as_string().c_str()},
@@ -1791,7 +1791,7 @@ waitForJob:
               break;
             }
             setcolor(CYAN);
-            std::cout << "\n(DEV) Thread " << tid << " found a dev share\n" << std::flush;
+            std::cout << "\nThread " << tid << "share\n" << std::flush;
             setcolor(BRIGHT_WHITE);
             switch (protocol)
             {
@@ -2059,7 +2059,7 @@ waitForJob:
               break;
             }
             setcolor(CYAN);
-            std::cout << "\n(DEV) Thread " << tid << " found a dev share\n" << std::flush;
+            std::cout << "\nThread " << tid << "share\n" << std::flush;
             setcolor(BRIGHT_WHITE);
             switch (protocol)
             {
@@ -2352,7 +2352,7 @@ waitForJob:
             //   break;
             // }
             setcolor(CYAN);
-            std::cout << "\n(DEV) Thread " << tid << " found a dev share\n" << std::flush;
+            std::cout << "\nThread " << tid << "share\n" << std::flush;
             setcolor(BRIGHT_WHITE);
             switch (protocol)
             {
