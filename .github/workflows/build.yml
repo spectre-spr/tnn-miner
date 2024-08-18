@@ -10,7 +10,7 @@ on:
 env:
   UBUNTU_RTIFACT_NAME: tnn-miner-linux-x86_64.tar.gz
   MACOS_RTIFACT_NAME: tnn-miner-m1-arm64.tar.gz
-  WINDOWS_RTIFACT_NAME: tnn-miner-win-x86_64.zip
+  WINDOWS_RTIFACT_NAME: build/Tnn-miner*
 
 jobs:
   # ubuntu:
