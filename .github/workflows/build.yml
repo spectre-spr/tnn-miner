@@ -75,18 +75,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache C++ dependencies
-      uses: actions/cache@v2
-      with:
-        path: |
-          - c:\zstd-v1.5.6-win64
-          - c:\mingw64
-          - c:\packages
-          build
-          .cache 
-          include
-        key: cplusplus-dependencies-${{ hashFiles('CMakeLists.txt') }}
-
     - name: Pack
       run: |
         .\scripts\prereqs.bat ci

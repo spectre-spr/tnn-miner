@@ -1,7 +1,5 @@
 set sevenzexe="C:\Program Files\7-Zip\7z.exe"
-if (not exist .\build ) {
-    mkdir .\build
-}
+mkdir .\build
 
 pushd .\build
 
