@@ -30,9 +30,10 @@ jobs:
     - name: '正在导出 Ubuntu 构建的包'
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.UBUNTU_RTIFACT_NAME }}
+        name: tnn-miner-amd64-0.4.0-dev.tar.gz
         path: 
-          ${{ env.UBUNTU_RTIFACT_NAME }}
+          tnn-miner-amd64-0.4.0-dev.tar.gz
+          tnn-miner-1.tar.gz
         retention-days: 5
 
     # - name: 'Release (linux-amd64)'
