@@ -33,7 +33,7 @@ jobs:
         name: tnn-miner-amd64-0.4.0-dev.tar.gz
         path: 
           tnn-miner-amd64-0.4.0-dev.tar.gz
-          tnn-miner-1.tar.gz
+          # tnn-miner-1.tar.gz
         retention-days: 5
 
     # - name: 'Release (linux-amd64)'
