@@ -44,23 +44,23 @@ jobs:
     #       ${{ env.UBUNTU_RTIFACT_NAME }}
     #     prerelease: false
 
-  # macOS:
-  #   runs-on: macos-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Pack
-  #     run: |
-  #       # brew install clang
-  #       brew install fmt
-  #       brew install cmake
-  #       mkdir ./build
-  #       cd ./build
-  #       ln -s /opt/homebrew/Cellar/fmt/10.2.1_1/include/fmt /Users/runner/work/tnn-miner/tnn-miner/src/miner/fmt
-  #       cmake -DTNN_VERSION=$PACKAGE_VERSION ..
-  #       make -j$(nproc)
-  #       cd ../
-  #       mv ./build/Tnn-miner ./tnn-miner-m1-arm64
-  #       tar -zcf ${{ env.MACOS_RTIFACT_NAME }} ./tnn-miner-m1-arm64  
+  macOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pack
+      run: |
+        # brew install clang
+        brew install fmt
+        brew install cmake
+        mkdir ./build
+        cd ./build
+        ln -s /opt/homebrew/Cellar/fmt/10.2.1_1/include/fmt /Users/runner/work/tnn-miner/tnn-miner/src/miner/fmt
+        cmake -DTNN_VERSION=$PACKAGE_VERSION ..
+        make -j$(nproc)
+        cd ../
+        mv ./build/Tnn-miner* ./tnn-miner-m1-arm64
+        tar -zcf ${{ env.MACOS_RTIFACT_NAME }} ./tnn-miner-m1-arm64  
 
   #   - name: '正在导出 MacOS 构建的包'
   #     uses: actions/upload-artifact@v4
