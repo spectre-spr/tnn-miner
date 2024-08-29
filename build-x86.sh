@@ -1,11 +1,15 @@
+# 安装clang-18
+wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && sudo ./llvm.sh 18
+
+sudo ln -n /usr/bin/clang++-18 /usr/bin/clang++
+sudo ln -n /usr/bin/clang-18 /usr/bin/clang
+# 安装 依赖库
+sudo apt install -y wget build-essential cmake libssl-dev libudns-dev libc++-dev lld libsodium-dev
+
+
 rm -fr build .cache 
-scripts/prereqs.sh && scripts/build.sh 64-amd-0.4.0-dev
-tar -zcvf tnn-miner-amd64-0.4.0-dev.tar.gz build/Tnn-miner*
-# wget https://github.com/spectre-spr/spectre-spr-information/releases/download/v0.3.6/tnn-miner-1.tar.gz
-# tar -zxvf tnn-miner-1.tar.gz
-# rm -fr tnn-miner/tnn-miner*
-# mv ./build/Tnn-miner* ./tnn-miner/tnn-miner
-# tar -zcvf tnn-miner-1.tar.gz tnn-miner
+scripts/build.sh 0.4.0-amd64-dev
+tar -zcvf tnn-miner-0.4.0-amd64-dev.tar.gz build/Tnn-miner*
 
 # sudo apt update -y && sudo apt install -y qemu-user-static
 
